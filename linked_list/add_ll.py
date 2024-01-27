@@ -16,7 +16,6 @@ class LinkedList:
                 print(n.data)
                 n = n.ref
 
-
     def add_being(self,data):
         add_val = Node(data)
         add_val.ref = self.head
@@ -32,7 +31,6 @@ class LinkedList:
                 n = n.ref
             n.ref = add_val
 
-
     def add_after(self,data,x):
         n = self.head
         while n is not None:
@@ -46,11 +44,25 @@ class LinkedList:
             add_val.ref = n.ref
             n.ref = add_val 
 
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.ref
+            current.ref = prev
+            prev = current
+            current = next_node
+        self.head = prev
+
+
+
                  
 d1 = LinkedList()
 d1.add_being(12)
 d1.add_being(123)
 d1.add_end(88)
 d1.add_after(666,12)
-
+d1.print()
+d1.reverse()
 d1.print()

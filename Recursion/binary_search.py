@@ -14,8 +14,10 @@ def binary_search(arr,target,right,left):
             return binary_search(arr,target,mid-1,left)
 
 
+
+
 arr = [2,5,6,7,8,11,15,16,17,20]
-target = 17
-d = binary_search(arr,target,len(arr)-1,0)
+target = 20
+d = binary_search(arr,target,0,len(arr)-1)
 print(d)
 
