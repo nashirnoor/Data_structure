@@ -26,9 +26,27 @@ class LinkedList:
         self.head = new_data
 
 
+    def add_end(self,data):
+        new_data = Node(data)
+        if self.head is None:
+            self.head = new_data
+
+        else:
+            
+            n = self.head
+            while n.ref is not None:
+                n = n.ref
+            n.ref = new_data
+            print(n)
+        
+
+
 
 
 a1 = LinkedList()
 a1.add_begin(20)
 a1.add_begin(99)
+a1.add_end(21)
+a1.add_end(100)
+a1.add_begin(1)
 a1.print()
