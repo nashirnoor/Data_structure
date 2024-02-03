@@ -100,16 +100,6 @@ class LinkedList:
                 print("not data")
             else:
                 n.ref = n.ref.ref
-
-    def reverse(self):
-        prev_node = None
-        current_node = self.head
-        while current_node:
-            next_node = current_node.ref
-            current_node.ref = prev_node
-            prev_node = current_node
-            current_node = next_node
-        self.head = prev_node
    
 
 a1 = LinkedList()
@@ -119,5 +109,5 @@ a1.add_begin(101)
 a1.add_end(67)
 a1.insert_after(43,20)
 a1.insert_before(44,101)
-a1.reverse()
+a1.delete_value(20)
 a1.print()
