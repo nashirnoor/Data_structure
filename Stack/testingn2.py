@@ -3,6 +3,7 @@ class Node:
         self.value = value
         self.next = None
 
+
 class Stack:
     def __init__(self,value):
         new_node = Node(value)
@@ -24,7 +25,7 @@ class Stack:
             self.top = new_node
         self.length+=1
 
-    def pop(self,value):
+    def pop(self):
         if self.top is None:
             return
         else:
@@ -39,3 +40,4 @@ a1.push(44)
 a1.push(26)
 a1.pop()
 a1.print()
+
