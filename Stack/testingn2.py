@@ -1,38 +1,31 @@
 class Node:
-    def __init__(self,value):
-        self.value = value
+    def __init__(self,val):
+        self.val = val
         self.next = None
 
-
 class Stack:
-    def __init__(self,value):
-        new_node = Node(value)
-        self.top = new_node
-        self.length = 1
+    def __init__(self,val):
+        self.top = Node(val)
+        self.height = 1
 
     def print(self):
         temp = self.top
         while temp is not None:
-            print(temp.value,end=" ")
+            print(temp.val,end=" ")
             temp = temp.next
 
-    def push(self,value):
-        new_node = Node(value)
-        if self.top is None:
-            self.top = new_node
-        else:
-            new_node.next = self.top
-            self.top = new_node
-        self.length+=1
+    def push(self,val):
+        new_node = Node(val)
+        new_node.next = self.top
+        self.top = new_node
 
     def pop(self):
-        if self.top is None:
-            return
-        else:
-            temp = self.top
-            self.top = self.top.next
-            temp.next = None
-            self.length-=1
+        self.top = self.top.next
+         
+
+
+
+
 
 
 a1 = Stack(20)
