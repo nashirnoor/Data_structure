@@ -19,18 +19,17 @@ class Stack:
         new_node.next = self.top
         self.top = new_node
 
+
+
     def pop(self):
         self.top = self.top.next
          
 
 
-
-
-
-
 a1 = Stack(20)
 a1.push(44)
 a1.push(26)
+a1.push(99)
 a1.pop()
 a1.print()
 

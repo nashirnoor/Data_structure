@@ -39,10 +39,6 @@ class LinkedList:
             n.ref = new_data
             print(n)
         
-
-
-
-
 a1 = LinkedList()
 a1.add_begin(20)
 a1.add_begin(99)
