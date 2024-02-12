@@ -1,18 +1,3 @@
-# def pivot(my_list, pivot_index, end_index):
-#     swap_index = pivot_index
-
-#     for i in range(pivot_index + 1, end_index):  
-#         if my_list[i] < my_list[pivot_index]:
-#             swap_index += 1
-#             my_list[swap_index], my_list[i] = my_list[i], my_list[swap_index]
-
-#     my_list[pivot_index], my_list[swap_index] = my_list[swap_index], my_list[pivot_index]
-#     return swap_index
-
-# my_list = [5, 3, 7, 8, 11, 10, 234, 1]
-# a = pivot(my_list, 0, 7)
-# print(my_list)
-
 def pivot_place(list1,first,last):
     pivot = list1[first]
     l = first + 1
@@ -28,8 +13,7 @@ def pivot_place(list1,first,last):
             list1[l],list1[r] = list1[r],list1[l]
     list1[first],list1[r] = list1[r],list1[first]
     return r
-    
-
+     
 def quick_sort(list1,first,last):
     if first<last:
         p = pivot_place(list1,first,last)

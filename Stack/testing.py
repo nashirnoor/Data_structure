@@ -47,5 +47,7 @@ a1.push(77)
 a1.push(55)
 a1.push(33)
 a1.pop()
+a1.pop()
+
 a1.print()
         
