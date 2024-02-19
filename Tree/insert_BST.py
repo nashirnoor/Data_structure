@@ -19,6 +19,23 @@ class BST:
             else:
                 self.rchild = BST(data)
 
+    def search(self,data):
+        if self.key == data:
+            print("Node is found")
+            return 
+        
+        if data < self.key:
+            if self.lchild:
+                self.lchild.search(data)
+            else:
+                print("Node is not found!!")
+        else:
+            if self.rchild:
+                self.rchild.search(data)
+            else:
+                print("Node is not found!!")
+
+
 
 
 
@@ -26,3 +43,5 @@ root = BST(10)
 list1 = [5,3,19,22,77,23]
 for i in list1:
     root.insert(i)
+
+root.search(7)
