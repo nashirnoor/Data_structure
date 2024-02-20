@@ -21,7 +21,7 @@ class BST:
 
     def search(self,data):
         if self.key == data:
-            print("Node is found")
+            print("Node is Present")
             return 
         
         if data < self.key:
@@ -35,13 +35,8 @@ class BST:
             else:
                 print("Node is not found!!")
 
-
-
-
-
 root = BST(10)
 list1 = [5,3,19,22,77,23]
 for i in list1:
     root.insert(i)
-
-root.search(7)
+root.search(77)
