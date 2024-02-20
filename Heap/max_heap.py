@@ -1,31 +1,52 @@
-def heapify(arr, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+class MaxHeap:
+    def __init__(self):
+        self.heap = []
 
-    if left < n and arr[left] > arr[largest]:
-        largest = left
+    def insert(self, val):
+        self.heap.append(val)
+        self._heapify_up(len(self.heap) - 1)
 
-    if right < n and arr[right] > arr[largest]:
-        largest = right
+    def extract_max(self):
+        if not self.heap:
+            return None
+        if len(self.heap) == 1:
+            return self.heap.pop()
 
-    if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]
-        heapify(arr, n, largest)
+        max_val = self.heap[0]
+        self.heap[0] = self.heap.pop()
+        self._heapify_down(0)
+        return max_val
 
-def heap_sort(arr):
-    n = len(arr)
+    def _heapify_up(self, i):
+        parent = (i - 1) // 2
+        if i > 0 and self.heap[i] > self.heap[parent]:
+            self.heap[i], self.heap[parent] = self.heap[parent], self.heap[i]
+            self._heapify_up(parent)
 
-    # Build max heap
-    for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
+    def _heapify_down(self, i):
+        left = 2 * i + 1
+        right = 2 * i + 2
+        largest = i
 
-    # Extract elements from heap one by one
-    for i in range(n - 1, 0, -1):
-        arr[0], arr[i] = arr[i], arr[0]  # Swap
-        heapify(arr, i, 0)
+        if left < len(self.heap) and self.heap[left] > self.heap[largest]:
+            largest = left
+        if right < len(self.heap) and self.heap[right] > self.heap[largest]:
+            largest = right
+
+        if largest != i:
+            self.heap[i], self.heap[largest] = self.heap[largest], self.heap[i]
+            self._heapify_down(largest)
 
 # Example usage:
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort(arr)
-print("Sorted array is:", arr)
+max_heap = MaxHeap()
+max_heap.insert(3)
+max_heap.insert(2)
+max_heap.insert(1)
+max_heap.insert(15)
+max_heap.insert(5)
+max_heap.insert(4)
+max_heap.insert(45)
+
+print("Max Heap:")
+while max_heap.heap:
+    print(max_heap.extract_max(), end=" ")
